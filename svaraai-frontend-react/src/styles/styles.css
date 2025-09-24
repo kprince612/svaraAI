@@ -1,0 +1,153 @@
+/* src/styles/styles.css - base styles that replace Tailwind */
+
+/* Reset-ish */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color: #222; background: #f7f7f8; }
+
+/* Layout */
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+.container { max-width: 1100px; margin: 20px auto; padding: 0 16px; width: 100%; }
+.header { background: #fff; border-bottom: 1px solid #e6e6ea; }
+.header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; }
+.brand-link { text-decoration: none; color: #4f46e5; font-weight: 700; font-size: 20px; }
+.nav { display: flex; gap: 12px; align-items: center; }
+.nav-link { color: #333; text-decoration: none; padding: 6px 8px; border-radius: 6px; }
+.nav-link:hover { background: #f0f0ff; }
+.nav-btn { border: 0; background: transparent; cursor: pointer; color: #333; padding: 6px 8px; border-radius: 6px; }
+
+/* Page */
+.page { padding: 8px 0 40px; }
+.page-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
+.page-header h1 { margin:0; font-size:22px; }
+
+/* Grid helpers */
+.grid { display: grid; gap: 16px; }
+.three-cols { grid-template-columns: repeat(3, 1fr); }
+.two-cols { grid-template-columns: repeat(2, 1fr); }
+.main-grid { grid-template-columns: 2fr 1fr; }
+.chart-card { min-height: 360px; }
+
+/* Card */
+.card { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 1px 4px rgba(20,20,30,0.04); border: 1px solid #ececec; }
+
+/* Auth card and center layout */
+.page-center { display:flex; align-items:center; justify-content:center; min-height: calc(100vh - 80px); }
+.auth-card { width: 420px; padding: 20px; }
+
+/* Forms */
+.form { display:flex; flex-direction: column; gap:10px; }
+.label { font-size: 13px; color: #555; margin-bottom: 6px; }
+.input { padding: 10px 12px; border: 1px solid #dcdcdc; border-radius: 6px; font-size: 14px; width: 100%; }
+.textarea { min-height: 100px; resize: vertical; }
+.actions { display:flex; justify-content:flex-end; gap: 8px; margin-top: 8px; }
+.form-row { display:flex; gap: 12px; }
+.form-row > div { flex: 1; }
+
+/* Buttons */
+.btn { background: #4f46e5; color: #fff; border: 0; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight:600; }
+.btn:hover { opacity: 0.95; }
+.btn-small { padding: 6px 10px; font-size: 14px; }
+.btn-secondary { background: #fff; border: 1px solid #dcdcdc; color: #222; }
+
+/* Stats */
+.stat-title { color: #666; font-size: 13px; }
+.stat-value { font-size: 28px; font-weight: 700; margin-top: 6px; }
+.stat-sub { color: #777; font-size: 13px; margin-top: 8px; }
+.overdue { color: #c53030; }
+
+/* Chart legend */
+.legend-row { display:flex; gap: 12px; margin-top:10px; }
+.legend-item { display:flex; gap:8px; align-items:center; font-size:13px; color:#444; }
+.legend-swatch { width:12px; height:12px; border-radius:3px; display:inline-block; }
+
+/* Overdue list */
+.list-overdue { list-style:none; padding:0; margin:0; max-height: 320px; overflow:auto; display:flex; flex-direction: column; gap:8px; }
+.overdue-item { display:flex; justify-content:space-between; align-items:center; padding:10px; border-radius:6px; background:#fff5f5; border:1px solid #ffe8e8; }
+
+/* Project card */
+.project-row { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.project-title { font-weight: 600; font-size: 16px; }
+.link { color: #4f46e5; text-decoration: none; }
+
+/* Task card */
+.task-card { background: #fff; border: 1px solid #eee; border-radius: 6px; padding: 10px; }
+.task-row { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.task-title { font-weight:600; }
+.priority { padding:4px 8px; border-radius: 12px; font-size:12px; text-transform:capitalize; }
+.priority.high { background:#ffe8e8; color:#b91c1c; }
+.priority.medium { background:#fff4e6; color:#b45309; }
+.priority.low { background:#f0fdf4; color:#166534; }
+
+/* Kanban */
+.kanban-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; align-items:start; }
+.kanban-column { background: #fbfbfb; padding: 10px; border-radius:8px; min-height: 220px; border:1px solid #f0f0f0; }
+.column-title { font-weight:600; margin-bottom:8px; }
+.column-list { display:flex; flex-direction:column; gap:8px; }
+.draggable { cursor: grab; }
+
+/* Modal */
+.modal-backdrop { position: fixed; inset:0; background: rgba(0,0,0,0.35); display:flex; align-items:center; justify-content:center; z-index:40; }
+.modal { background: #fff; border-radius:8px; padding:16px; width:100%; max-width:760px; box-shadow:0 8px 40px rgba(20,20,40,0.12); }
+.modal-title { font-weight:700; margin-bottom:12px; }
+.modal-body { display:flex; flex-direction:column; gap:10px; }
+
+/* ----- Responsive tweaks (append to styles.css) ----- */
+
+/* Make header stack on small screens */
+.responsive-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.header-actions { display: flex; align-items: center; gap: 8px; }
+
+/* Stack stat cards on narrow screens */
+.responsive-stats {
+  grid-template-columns: 1fr;
+}
+.responsive-main {
+  grid-template-columns: 1fr;
+}
+
+/* smaller screens adjustments */
+@media (min-width: 640px) {
+  .responsive-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .responsive-main {
+    grid-template-columns: 1fr;
+  }
+  .page-header h1 { font-size: 24px; }
+}
+
+/* medium and up: 2-column main layout (chart + list) */
+@media (min-width: 880px) {
+  .responsive-main {
+    grid-template-columns: 2fr 1fr;
+    gap: 18px;
+  }
+  .chart-card { min-height: 340px; }
+}
+
+/* large screens: wider spacing */
+@media (min-width: 1200px) {
+  .chart-card { min-height: 380px; }
+  .page-center { min-height: calc(100vh - 100px); }
+}
+
+/* make lists and cards more compact on smaller screens */
+@media (max-width: 420px) {
+  .page { padding: 10px 12px 30px; }
+  .card { padding: 12px; }
+  .stat-value { font-size: 22px; }
+  .legend-row { gap: 8px; font-size: 12px; }
+  .list-overdue { max-height: 220px; }
+  .muted.small { font-size: 11px; }
+}
+
+
+/* Utilities */
+.muted { color:#666; }
+.small { font-size:12px; }
+.alert.error { background:#fff5f5; border:1px solid #ffcccc; padding:10px; color:#b91c1c; border-radius:6px; }
