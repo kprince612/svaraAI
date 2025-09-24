@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 4000;
 
 (async () => {
   try {
-    await connectDB("mongodb://localhost:27017/svaraai");
+    await connectDB("mongodb+srv://khandelwalprince612:123456Prince@cluster0.zbt6z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/svaraai");
     app.listen(PORT, () => {
       console.log(`Server listening on port ${PORT}`);
     });
